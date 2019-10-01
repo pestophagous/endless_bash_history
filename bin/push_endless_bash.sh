@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_VER=0
+SCRIPT_VER=1
 
 # is there a .persistent_history ?
 ls ~/.persistent_history > /dev/null

@@ -6,13 +6,13 @@ then
     exit 1
 fi
 
-SCRIPT_VER=0
+SCRIPT_VER=1
 
 # check if ~/.persistent_history exists and is appendable
 touch ~/.persistent_history
 if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
 
-echo '# endless_bash_history/bin/install.sh sanity check' > ~/.persistent_history
+echo '# endless_bash_history/bin/install.sh sanity check' >> ~/.persistent_history
 if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
 
 
