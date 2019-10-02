@@ -49,3 +49,9 @@ else
 
     echo Install script is happy with preexisting PROMPT_COMMAND
 fi
+
+sudo cp bin/push_endless_bash.sh /usr/bin/
+sudo chmod 0755 /usr/bin/push_endless_bash.sh
+
+sudo cp pluggables/mv001/endless_bash_pluggable_push /usr/bin/endless_bash_pluggable_push
+sudo chmod 0755 /usr/bin/endless_bash_pluggable_push
