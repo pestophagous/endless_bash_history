@@ -90,9 +90,14 @@ Suggested starting point:
 2. Create an executable file named `endless_bash_pluggable_push` and put that on
    your path, too
 
+**You must then populate your executable file "endless_bash_pluggable_push" with
+  logic that you write.**
+
 Whenever you call `push_endless_bash.sh`, it will gather up all new entries
 added to `$HOME/.persistent_history` since your last "push", and it will put
-those in a file and then invoke you `endless_bash_pluggable_push` with the
-filename as the only argument.
+those in a file and then invoke your `endless_bash_pluggable_push` with the
+filename as the only argument. **By populating your executable file
+"endless_bash_pluggable_push" with custom logic, this is how you can push it to
+the cloud or to some other backup medium.**
 
 Look inside `push_endless_bash.sh` for details.
