@@ -6,13 +6,23 @@ then
     exit 1
 fi
 
-SCRIPT_VER=1
+SCRIPT_VER=2
+
+THISDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+ebh_histfile="~/.persistent_history"
+
+if [[ -n ${ebh_other_dir-} ]];
+# The '-' hyphen above tests without angering the 'set -u' about unbound variables
+then
+  ebh_histfile="${ebh_other_dir}/.persistent_history"
+fi
 
 # check if ~/.persistent_history exists and is appendable
-touch ~/.persistent_history
+touch "${ebh_histfile}"
 if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
 
-echo '# endless_bash_history/bin/install.sh sanity check' >> ~/.persistent_history
+echo '# endless_bash_history/bin/install.sh sanity check' >> "${ebh_histfile}"
 if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
 
 
@@ -20,9 +30,9 @@ if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; 
 if [ -z "$PROMPT_COMMAND" ]; then
     # install it
     tmpfile=$(mktemp /tmp/endless_bash_history_install.XXXXXXXX)
-    ls data/for_bashrc
+    ls "${THISDIR}/../data/for_bashrc"
     if [ $? != 0 ]; then echo run as 'source bin/install.sh' from git repo root; return -1; fi
-    cp data/for_bashrc $tmpfile
+    cp "${THISDIR}/../data/for_bashrc" $tmpfile
     if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
 
     # Personalize this to your liking:
