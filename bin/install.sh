@@ -1,10 +1,11 @@
 #!/bin/bash
 
-if [ "${BASH_SOURCE[0]}" -ef "$0" ]
-then
-    echo "Hey, you should source this script, not execute it!"
-    exit 1
-fi
+# why did i think this should be a condition? why would we need to always source?
+#if [ "${BASH_SOURCE[0]}" -ef "$0" ]
+#then
+#    echo "Hey, you should source this script, not execute it!"
+#    exit 1
+#fi
 
 SCRIPT_VER=2
 
