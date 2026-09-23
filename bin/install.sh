@@ -37,10 +37,10 @@ if [ -z "$PROMPT_COMMAND" ]; then
     if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
 
     # Personalize this to your liking:
-    host_unique_name=$((hostname && uuid -F SIV) | xargs echo -n | tr ' ' '-')
-    echo host_unique_name is [$host_unique_name]
+    #host_unique_name=$((hostname && uuid -F SIV) | xargs echo -n | tr ' ' '-')
+    #echo host_unique_name is [$host_unique_name]
 
-    sed -i "s/host_part=.hostname./host_part=$host_unique_name/"  $tmpfile
+    #sed -i "s/host_part=.hostname./host_part=$host_unique_name/"  $tmpfile
     if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
     cat ~/.bashrc $tmpfile > ~/.bashrc.new
     if [ $? != 0 ]; then echo early termination at v$SCRIPT_VER:$LINENO; return -1; fi
